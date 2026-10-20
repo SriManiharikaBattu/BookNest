@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BookNest - Online Book Store</title>
+    <style>
+      /* Hide Google Translate UI elements completely */
+      body { top: 0 !important; }
+      .skiptranslate { display: none !important; }
+      #google_translate_element { display: none !important; }
+      .goog-te-banner-frame { display: none !important; }
+      .goog-tooltip { display: none !important; }
+      .goog-tooltip:hover { display: none !important; }
+      .goog-text-highlight { background-color: transparent !important; border: none !important; box-shadow: none !important; }
+    </style>
+    <script>
+      // Enforce English immediately on first load for guests
+      if (document.cookie.indexOf('token=') === -1) {
+        document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=localhost;";
+        document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.localhost;";
+      }
+    </script>
+  </head>
+  <body>
+    <div id="google_translate_element"></div>
+    <div id="root"></div>
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+          pageLanguage: 'en', 
+          includedLanguages: 'en,hi,te', 
+          autoDisplay: false
+        }, 'google_translate_element');
+      }
+    </script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
